@@ -142,7 +142,7 @@ app.get("/books/:title",async(req,resp)=>{
 app.get("/books",async(req,resp)=>{
     try{
         const books=await readAllBooks();
-        if(books.length!==0){
+        if(books.length){
             resp.json(books);
         }
         else{
