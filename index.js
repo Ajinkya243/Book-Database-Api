@@ -164,6 +164,6 @@ app.post("/books",async(req,resp)=>{
     }
 })
 
-app.get("/",(req,resp)=>{
-    resp.send("Welcome to book database api.")
-})
+// app.get("/",(req,resp)=>{
+//     resp.send("Welcome to book database api.")
+// })
