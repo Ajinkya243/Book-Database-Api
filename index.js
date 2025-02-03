@@ -86,7 +86,7 @@ app.get("/books/releaseYear/:year",async(req,resp)=>{
     try{
         const book=await findBookByReleaseYear(req.params.year);
         if(book.length){
-            resp.send(book);
+            resp.json({book});
         }
         else{{
             resp.status(404).json({error:'Book not found.'});
@@ -102,7 +102,7 @@ app.get("/books/genre/:genre",async(req,resp)=>{
     try{
     const book=await findBookByGenre(req.params.genre);
     if(book.length){
-        resp.send(book);
+        resp.json({book});
     }
     else{
         resp.status(404).json({error:'Book not found.'})
@@ -117,7 +117,7 @@ app.get("/books/author/:author",async(req,resp)=>{
     try{
         const book=await findBookByAuthor(req.params.author);
         if(book.length){
-            resp.send(book);
+            resp.json({book});
         }
         else{
             resp.status(404).json({error:"Book not found."})
@@ -132,7 +132,7 @@ app.get("/books/author/:author",async(req,resp)=>{
 app.get("/books/:title",async(req,resp)=>{
     const book=await findBookByTitle(req.params.title);
     if(book.length){
-        resp.send(book);
+        resp.json({book});
     }
     else{
         resp.status(404).json({error:'Book not found.'})
@@ -143,7 +143,7 @@ app.get("/books",async(req,resp)=>{
     try{
         const books=await readAllBooks();
         if(books.length){
-            resp.send(books);
+            resp.json({books});
         }
         else{
             resp.status(404).json({error:'Books not found'})
@@ -164,6 +164,6 @@ app.post("/books",async(req,resp)=>{
     }
 })
 
-// app.get("/",(req,resp)=>{
-//     resp.send("Welcome to book database api.")
-// })
+app.get("/",(req,resp)=>{
+    resp.send("Welcome to book database api.")
+})
