@@ -86,7 +86,7 @@ app.get("/books/releaseYear/:year",async(req,resp)=>{
     try{
         const book=await findBookByReleaseYear(req.params.year);
         if(book.length){
-            resp.json({book});
+            resp.json(book);
         }
         else{{
             resp.status(404).json({error:'Book not found.'});
@@ -102,7 +102,7 @@ app.get("/books/genre/:genre",async(req,resp)=>{
     try{
     const book=await findBookByGenre(req.params.genre);
     if(book.length){
-        resp.json({book});
+        resp.json(book);
     }
     else{
         resp.status(404).json({error:'Book not found.'})
@@ -117,7 +117,7 @@ app.get("/books/author/:author",async(req,resp)=>{
     try{
         const book=await findBookByAuthor(req.params.author);
         if(book.length){
-            resp.json({book});
+            resp.json(book);
         }
         else{
             resp.status(404).json({error:"Book not found."})
@@ -132,7 +132,7 @@ app.get("/books/author/:author",async(req,resp)=>{
 app.get("/books/:title",async(req,resp)=>{
     const book=await findBookByTitle(req.params.title);
     if(book.length){
-        resp.json({book});
+        resp.json(book);
     }
     else{
         resp.status(404).json({error:'Book not found.'})
