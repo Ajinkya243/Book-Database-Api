@@ -139,9 +139,9 @@ app.get("/books/:title",async(req,resp)=>{
     }
 })
 
-app.get("/books",(req,resp)=>{
+app.get("/books",async(req,resp)=>{
     try{
-        const books=readAllBooks();
+        const books=await readAllBooks();
         if(books.length){
             resp.json({books});
         }
