@@ -2,6 +2,7 @@ const {initializeDatabase}=require('./db/db.connect');
 const {Book}=require("./models/book.models");
 const express=require('express');
 const app=express();
+app.use(cors());
 app.use(express.json());
 initializeDatabase();
 
