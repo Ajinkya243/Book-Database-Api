@@ -1,6 +1,7 @@
 const {initializeDatabase}=require('./db/db.connect');
 const {Book}=require("./models/book.models");
 const express=require('express');
+const cors = require("cors");
 const app=express();
 app.use(cors());
 app.use(express.json());
@@ -161,4 +162,8 @@ app.post("/books",async(req,resp)=>{
     catch(error){
         resp.status(500).json({error:'Error occur while sabving book data.'})
     }
+})
+
+app.get("/",(req,resp)=>{
+    resp.send("Welcome to book database api.")
 })
