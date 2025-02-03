@@ -142,8 +142,8 @@ app.get("/books/:title",async(req,resp)=>{
 app.get("/books",async(req,resp)=>{
     try{
         const books=await readAllBooks();
-        if(books.length){
-            resp.json({books});
+        if(books.length!==0){
+            resp.json(books);
         }
         else{
             resp.status(404).json({error:'Books not found'})
