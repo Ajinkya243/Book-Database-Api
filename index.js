@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 initializeDatabase();
 
-const port=process.env.PORT;
+const port=3000;
 app.listen(port,()=>{
     console.log(`Express server running on ${port}`)
 })
