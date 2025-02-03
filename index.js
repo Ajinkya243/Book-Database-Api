@@ -154,15 +154,15 @@ app.get("/books",async(req,resp)=>{
     }
 })
 
-// app.post("/books",async(req,resp)=>{
-//     try{
-//         const book=addBook(req.body);
-//         resp.status(201).json({message:'Book saved.'})
-//     }
-//     catch(error){
-//         resp.status(500).json({error:'Error occur while sabving book data.'})
-//     }
-// })
+app.post("/books",async(req,resp)=>{
+    try{
+        const book=addBook(req.body);
+        resp.status(201).json({message:'Book saved.'})
+    }
+    catch(error){
+        resp.status(500).json({error:'Error occur while sabving book data.'})
+    }
+})
 
 app.get("/",(req,resp)=>{
     resp.send("Welcome to book database api.")
